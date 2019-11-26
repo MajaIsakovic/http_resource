@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueResource from './App.vue';
+import VueResource from "vue-resource"
 
 Vue.config.productionTip = false
-
 //extend core functionality adding resource to use function
 Vue.use(VueResource);
 
