@@ -14,6 +14,11 @@
         <button class="btn btn-secondary" @click="submit">Submit</button>
         <br><br>
         <button class="btn btn-success" @click="getData">Submit</button>
+        <ul class="list-group">
+          <li class="list-group-item" v-bind:key="item" v-for="item  in users">
+            {{ item.id }} / {{ item.title }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -27,7 +32,8 @@ export default {
       user:{
         username: '',
         email: ''
-      }
+      },
+      users: []
     }
   },
   methods:{
@@ -40,11 +46,18 @@ export default {
                 });
       },
       getData(){
-        this.$http.get('https://jsonplaceholder.typicode.com/posts/1')
+        this.$http.get('https://jsonplaceholder.typicode.com/posts/')
             .then(res => {
               return res.json();
             })
-            .then(data => console.log(data))
+            .then(data => {
+              const resultArray = [];
+              for(let k in data){
+                resultArray.push(data[k]);
+              }
+              this.users = resultArray;
+              console.log(this.users)
+            });
       }
   }
 
