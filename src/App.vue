@@ -38,7 +38,7 @@ export default {
   },
   methods:{
       submit(){
-        this.$http.post('', this.user)
+        this.$http.post('1', this.user)
                 .then(res =>{
                   console.log(res)
                 }, err =>{

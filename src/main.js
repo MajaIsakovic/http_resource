@@ -8,6 +8,13 @@ Vue.use(VueResource);
 
 // set up vue resource url globaly
 Vue.http.options.root = 'https://jsonplaceholder.typicode.com/posts/';
+Vue.http.interceptors.push((request, next) => {
+  console.log(request);
+  if(request.method == 'POST'){
+    request.method = 'PUT'
+  }
+  next();
+});
 
 new Vue({
   render: h => h(App),
