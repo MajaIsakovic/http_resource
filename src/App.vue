@@ -12,6 +12,8 @@
           <input type="text" class="form-control" v-model="user.email">
         </div>
         <button class="btn btn-secondary" @click="submit">Submit</button>
+        <br><br>
+        <button class="btn btn-success" @click="getData">Submit</button>
       </div>
     </div>
   </div>
@@ -36,6 +38,13 @@ export default {
                 }, err =>{
                   console.log(err)
                 });
+      },
+      getData(){
+        this.$http.get('https://jsonplaceholder.typicode.com/posts/1')
+            .then(res => {
+              return res.json();
+            })
+            .then(data => console.log(data))
       }
   }
 
