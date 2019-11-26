@@ -15,9 +15,9 @@
         <br><br>
         <button class="btn btn-success" @click="getData">Submit</button>
         <ul class="list-group">
-          <li class="list-group-item" v-bind:key="item" v-for="item  in users">
+          <!-- <li class="list-group-item" v-bind:key="item" v-for="item  in users">
             {{ item.id }} / {{ item.title }}
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -38,7 +38,7 @@ export default {
   },
   methods:{
       submit(){
-        this.$http.post('https://jsonplaceholder.typicode.com/posts', this.user)
+        this.$http.post('', this.user)
                 .then(res =>{
                   console.log(res)
                 }, err =>{
@@ -46,7 +46,7 @@ export default {
                 });
       },
       getData(){
-        this.$http.get('https://jsonplaceholder.typicode.com/posts/')
+        this.$http.get('1')
             .then(res => {
               return res.json();
             })
