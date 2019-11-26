@@ -30,7 +30,12 @@ export default {
   },
   methods:{
       submit(){
-        console.log(this.user);
+        this.$http.post('https://jsonplaceholder.typicode.com/posts', this.user)
+                .then(res =>{
+                  console.log(res)
+                }, err =>{
+                  console.log(err)
+                });
       }
   }
 
